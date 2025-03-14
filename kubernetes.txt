@@ -1,1 +1,6 @@
-https://yandex.cloud/ru/docs/cli/quickstart#install
+yc k8s cluster get-credentials --external --name vmservneo01 --force
+kubectl get nodes
+kubectl api-resources
+pods
+deployments
+services
