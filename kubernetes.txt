@@ -14,4 +14,5 @@ kubectl scale deployment --replicas=3 vmservkub01 - запустить неск�
 kubectl expose deployment vmservkub01 --port=3000 --target-port=3000 --type LoadBalancer 
 - типа запуск сервиса к которому пользователи смогут подключиться (тобишь к контейнеру)
 (--type LoadBalancer нужен для того чтобы пользователи смогли подключаться,иначе если его не будет то это получится все локально)
-kybectl get service - просмотр сервисов
+kubectl get service - просмотр сервисов
+kubectl logs ()
