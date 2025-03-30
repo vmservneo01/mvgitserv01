@@ -9,3 +9,6 @@ Dockerfile:93
 ERROR: failed to solve: process "/bin/sh -c java/gradlew bootJar -p ./java" did not complete successfully: exit code: 1
 make: *** [Makefile:8: docker-build] Error 1
 -bash: +: command not found
+РЕШЕНО:
+Исполнил команду make docker-build под обычным пользователем(не под root)
+Объяснение:Удалите sudo из своего скрипта, нет смысла использовать его, если вы работаете от имени пользователя root. Это также причина, по которой DEBIAN_FRONTEND не действует — sudo по соображениям безопасности сбрасывает среду текущего пользователя, вам придётся использовать опцию -E, чтобы это сработало.
