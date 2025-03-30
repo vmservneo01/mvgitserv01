@@ -1,0 +1,11 @@
+Dockerfile:93
+--------------------
+  91 |     RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y oracle-java17-installer
+  92 |     
+  93 | >>> RUN java/gradlew bootJar -p ./java
+  94 |     
+  95 |     
+--------------------
+ERROR: failed to solve: process "/bin/sh -c java/gradlew bootJar -p ./java" did not complete successfully: exit code: 1
+make: *** [Makefile:8: docker-build] Error 1
+-bash: +: command not found
