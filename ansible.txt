@@ -1,0 +1,3 @@
+ansible vmserv04 -m file -a "path=/root/ansiblefile.txt state=touch" -b
+ansible vmserv04 -m copy -a "src=file dest=/root mode=777" -b
+
