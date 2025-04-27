@@ -12,3 +12,12 @@ make: *** [Makefile:8: docker-build] Error 1
 РЕШЕНО:
 Исполнил команду make docker-build под обычным пользователем(не под root)
 Объяснение:Удалите sudo из своего скрипта, нет смысла использовать его, если вы работаете от имени пользователя root. Это также причина, по которой DEBIAN_FRONTEND не действует — sudo по соображениям безопасности сбрасывает среду текущего пользователя, вам придётся использовать опцию -E, чтобы это сработало.
+
+
+GitLab
+=> /var/log/gitlab/gitlab-rails/production.log <==
+Started POST "/users/sign_in" for 192.168.56.1 at 2025-04-27 23:15:14 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"shbr@yandex-team.ru", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Elasticsearch: 0.0ms | Allocations: 330)
