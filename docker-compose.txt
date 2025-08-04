@@ -1,5 +1,8 @@
 https://www.dmosk.ru/miniinstruktions.php?mini=docker-install-linux#compose
 
+scp docker-compose.txt root@vmserv02:/opt/docker/
+
+
 ---
 
 version: "3.8"
