@@ -1,0 +1,35 @@
+Host database
+    HostName 192.168.122.105
+    User ivan
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+
+Host backup
+    HostName 192.168.122.70
+    User ivan
+    Port 2222
+    IdentityFile ~/.ssh/id_ed25519_backup
+
+Host monitoring
+    HostName 192.168.122.112
+    User ivan
+    Port 3333
+    IdentityFile ~/.ssh/id_ed25519_monitoring
+    Compression yes
+
+Host github.com
+    HostName github.com
+    User git
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519_github
+
+# параметры по умолчанию для всех остальных хостов
+Host *
+    #User root
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    #Compression yes
+    #ServerAliveInterval 60
