@@ -1,0 +1,14 @@
+Status:
+  Conditions:
+    Last Transition Time:        2025-09-28T14:43:31Z
+    Message:                     Issuing certificate as Secret does not exist
+    Observed Generation:         1
+    Reason:                      DoesNotExist
+    Status:                      False
+    Type:                        Ready
+    Last Transition Time:        2025-09-28T14:43:31Z
+    Message:                     Issuing certificate as Secret does not exist
+    Observed Generation:         1
+    Reason:                      DoesNotExist
+    Status:                      True
+    Type:                        Issuing
