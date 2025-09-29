@@ -1,0 +1,2 @@
+FAILED! => {"changed": false, "cmd": "/usr/bin/rsync --delay-updates -F --compress --archive --rsh='/usr/bin/ssh -S none -i /root/.ssh/ansible/id_ed25519_ansible -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' --rsync-path='sudo -u root rsync' --out-format='<<CHANGED>>%i %n%L' ansible_vmserv02:/var/www/html/phpdemo /root/ansibletest/staging_folder/
+", "msg": "ssh: Could not resolve hostname ansible_vmserv02: Name or service not known\r\nrsync: connection unexpectedly closed
