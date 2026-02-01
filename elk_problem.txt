@@ -2,3 +2,37 @@
 {:timestamp=>"2025-11-24T18:12:50.030000+0000", :message=>"Got error to send bulk of actions: blocked by: [SERVICE_UNAVAILABLE/1/state not recovered / initialized];[SERVICE_UNAVAILABLE/2/no master];", :level=>:error}
 {:timestamp=>"2025-11-24T18:12:50.031000+0000", :message=>"Failed to flush outgoing items", :outgoing_count=>1, :exception=>"Java::OrgElasticsearchClusterBlock::ClusterBlockException", :backtrace=>["org.elasticsearch.cluster.block.ClusterBlocks.globalBlockedException(org/elasticsearch/cluster/block/ClusterBlocks.java:151)", "org.elasticsearch.cluster.block.ClusterBlocks.globalBlockedRaiseException(org/elasticsearch/cluster/block/ClusterBlocks.java:141)", "org.elasticsearch.action.bulk.TransportBulkAction.executeBulk(org/elasticsearch/action/bulk/TransportBulkAction.java:215)", "org.elasticsearch.action.bulk.TransportBulkAction.access$000(org/elasticsearch/action/bulk/TransportBulkAction.java:67)", "org.elasticsearch.action.bulk.TransportBulkAction$1.onFailure(org/elasticsearch/action/bulk/TransportBulkAction.java:153)", "org.elasticsearch.action.support.TransportAction$ThreadedActionListener$2.run(org/elasticsearch/action/support/TransportAction.java:137)", "java.util.concurrent.ThreadPoolExecutor.runWorker(java/util/concurrent/ThreadPoolExecutor.java:1142)", "java.util.concurrent.ThreadPoolExecutor$Worker.run(java/util/concurrent/ThreadPoolExecutor.java:617)", "java.lang.Thread.run(java/lang/Thread.java:745)"], :level=>:warn}
 {:timestamp=>"2025-11-24T18:13:51.033000+0000", :message=>"Got error to send bulk of actions: blocked by: [SERVICE_UNAVAILABLE/1/state not recovered / initialized];[SERVICE_UNAVAILABLE/2/no master];", :level=>:error}
+
+
+cat /var/log/elasticsearch/logstash.log 
+[2026-02-05 21:24:33,950][INFO ][node                     ] [Tethlam] version[1.4.5], pid[9], build[2aaf797/2015-04-27T08:06:06Z]                                                            
+[2026-02-05 21:24:33,950][INFO ][node                     ] [Tethlam] initializing ...                                                                                                       
+[2026-02-05 21:24:33,952][INFO ][plugins                  ] [Tethlam] loaded [], sites []                                                                                                    
+[2026-02-05 21:24:35,836][INFO ][node                     ] [Tethlam] initialized                                                                                                            
+[2026-02-05 21:24:35,837][INFO ][node                     ] [Tethlam] starting ...                       
+[2026-02-05 21:24:35,992][INFO ][transport                ] [Tethlam] bound_address {inet[/0:0:0:0:0:0:0:
+[2026-02-05 21:24:36,003][INFO ][discovery                ] [Tethlam] logstash/qDonddXfSsmSVcaXIJz3eQ    
+[2026-02-05 21:24:39,801][INFO ][cluster.service          ] [Tethlam] new_master [Tethlam][qDonddXfSsmSVcmaster)                                                                                                  
+[2026-02-05 21:24:39,819][INFO ][http                     ] [Tethlam] bound_address {inet[/0:0:0:0:0:0:0:
+[2026-02-05 21:24:39,819][INFO ][node                     ] [Tethlam] started                            
+[2026-02-05 21:24:39,820][INFO ][gateway                  ] [Tethlam] recovered [0] indices into cluster_
+[2026-02-05 21:24:41,875][INFO ][cluster.service          ] [Tethlam] added {[logstash-adb6b984e869-10-14t=true},}, reason: zen-disco-receive(join from node[[logstash-adb6b984e869-10-14018][jYP4UDZoTkGB7utzEAZG
+[2026-02-05 21:26:00,722][INFO ][cluster.metadata         ] [Tethlam] [.kibana] creating index, cause [ap
+[2026-02-05 21:26:01,069][INFO ][cluster.metadata         ] [Tethlam] [.kibana] update_mapping [config] (
+root@adb6b984e869:/# curl -X GET "http://localhost:9200/_cluster/health?pretty"                          
+{                                                                                                        
+  "cluster_name" : "logstash",
+  "status" : "yellow",
+  "timed_out" : false,
+  "number_of_nodes" : 2,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 1
+}
+root@adb6b984e869:/# curl -X GET "http://localhost:9200/_cat/shards/.kibana?v&pretty"
+index   shard prirep state      docs store ip         node    
+.kibana 0     p      STARTED       1 2.5kb 172.18.0.3 Tethlam 
+.kibana 0     r      UNASSIGNED     
