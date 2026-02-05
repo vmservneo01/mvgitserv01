@@ -36,3 +36,12 @@ root@adb6b984e869:/# curl -X GET "http://localhost:9200/_cat/shards/.kibana?v&pr
 index   shard prirep state      docs store ip         node    
 .kibana 0     p      STARTED       1 2.5kb 172.18.0.3 Tethlam 
 .kibana 0     r      UNASSIGNED     
+
+
+curl -X PUT "http://localhost:9200/.kibana/_settings" -H 'Content-Type: application/json' -d'
+{
+  "index": {
+    "number_of_replicas": 0
+  }
+}
+'
